@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>semaforo</title>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row align-item-start">
+            <div class="col"> 
+            </div>
+            <div class="col">
+                <h1 class="titolo">Clicca sul pulsante appena il semaforo si spegnerà</h1>
+                <div class="rect">
+                    <div id="circle1" class="grey">
+                    </div>
+                    <div id="circle2" class="grey">
+                    </div>
+                    <div id="circle3" class="grey">
+                    </div>
+                    <div id="circle4" class="grey">
+                    </div>
+                    <div id="circle5" class="grey">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <form>
+            <input id="bottone" type="button" value="cliccami" class="bottone">
+        </form>
+        <div id="messaggio"></div>
+    </div>
+
+    <script>
+        let button = document.querySelector("#bottone");
+        let message = document.querySelector("#messaggio");
+        let cerchio1 = document.querySelector("#circle1");
+        let cerchio2 = document.querySelector("#circle2");
+        let cerchio3 = document.querySelector("#circle3");
+        let cerchio4 = document.querySelector("#circle4");
+        let cerchio5 = document.querySelector("#circle5");
+        let now
+        let now2
+
+        setTimeout(function(){
+            cerchio1.classList.remove("grey");
+            cerchio1.classList.add("red");
+        }, 2000)
+        setTimeout(function(){
+            cerchio2.classList.remove("grey");
+            cerchio2.classList.add("red");
+        }, 4000)
+        setTimeout(function(){
+            cerchio3.classList.remove("grey");
+            cerchio3.classList.add("red");
+        }, 6000)
+        setTimeout(function(){
+            cerchio4.classList.remove("grey");
+            cerchio4.classList.add("red");
+        }, 8000)
+        setTimeout(function(){
+            cerchio5.classList.remove("grey");
+            cerchio5.classList.add("red");
+        }, 10000)
+
+        setTimeout(function(){
+            cerchio1.classList.remove("red");
+            cerchio2.classList.remove("red");
+            cerchio3.classList.remove("red");
+            cerchio4.classList.remove("red");
+            cerchio5.classList.remove("red");
+            cerchio1.classList.add("grey");
+            cerchio2.classList.add("grey");
+            cerchio3.classList.add("grey");
+            cerchio4.classList.add("grey");
+            cerchio5.classList.add("grey");
+            now = new Date()
+        }, 12000)
+
+        button.addEventListener('click', function() {
+            if (now>0){
+                now2 = new Date()
+            let now3 = (now2 - now)/1000;
+            message.textContent = "Pulante premuto in: " + now3;
+            }
+        })
+    </script>
+
+
+
+
+
+
+</body>
+</html>
