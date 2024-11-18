@@ -37,6 +37,10 @@
     </div>
 
     <script>
+        function generateRandomnumber(min,max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
         let button = document.querySelector("#bottone");
         let message = document.querySelector("#messaggio");
         let cerchio1 = document.querySelector("#circle1");
@@ -44,29 +48,42 @@
         let cerchio3 = document.querySelector("#circle3");
         let cerchio4 = document.querySelector("#circle4");
         let cerchio5 = document.querySelector("#circle5");
-        let now
-        let now2
+        let now;
+        let now2;
+        let click = true;
+        let random1 = generateRandomnumber(1,5);
+        let random2 = generateRandomnumber(1,5);
+        let random3 = generateRandomnumber(1,5);
+        let random4 = generateRandomnumber(1,5);
+        let random5 = generateRandomnumber(1,5);
+        let random6 = generateRandomnumber(1,5);
+        let tempo1 = random1*1000;
+        let tempo2 = (random1 + random2)*1000;
+        let tempo3 = (random1 + random2 + random3)*1000;
+        let tempo4 = (random1 + random2 + random3 + random4)*1000;
+        let tempo5 = (random1 + random2 + random3 + random4 + random5)*1000;
+        let tempo6 = (random1 + random2 + random3 + random4 + random5 + random6)*1000;
 
         setTimeout(function(){
             cerchio1.classList.remove("grey");
             cerchio1.classList.add("red");
-        }, 2000)
+        }, tempo1)
         setTimeout(function(){
             cerchio2.classList.remove("grey");
             cerchio2.classList.add("red");
-        }, 4000)
+        }, tempo2)
         setTimeout(function(){
             cerchio3.classList.remove("grey");
             cerchio3.classList.add("red");
-        }, 6000)
+        }, tempo3)
         setTimeout(function(){
             cerchio4.classList.remove("grey");
             cerchio4.classList.add("red");
-        }, 8000)
+        }, tempo4)
         setTimeout(function(){
             cerchio5.classList.remove("grey");
             cerchio5.classList.add("red");
-        }, 10000)
+        }, tempo5)
 
         setTimeout(function(){
             cerchio1.classList.remove("red");
@@ -80,14 +97,16 @@
             cerchio4.classList.add("grey");
             cerchio5.classList.add("grey");
             now = new Date()
-        }, 12000)
+        }, tempo6)
 
         button.addEventListener('click', function() {
+            if (click === true) {
             if (now>0){
                 now2 = new Date()
             let now3 = (now2 - now)/1000;
             message.textContent = "Pulante premuto in: " + now3;
             }
+        } click = false;
         })
     </script>
 
